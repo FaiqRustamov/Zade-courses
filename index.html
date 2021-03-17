@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="America,Azerbaijan">
+    <meta name="description" content="The Federation of Azerbaijani Americans">
+    <title> Zade Ai & Robotics</title>
+    <link rel="icon" href="./assets/images/logo.png" type="image/gif" sizes="16x16">
+    <!-- Bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Google Fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!--Font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">        <!-- Own css link -->
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+
+.top-content .carousel-control-prev-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+}
+ 
+.top-content .carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.navbar-brand {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZGF0YS1uYW1lPSJMYXllciAxIiBpZD0iTGF5ZXJfMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik01MDQuMzMsNDQ5Yy0xLjc3LTYuOC00NC43My0xNjcuNTItMTY0LjIxLTIzMi45MS00NC42NS0yNC40My05Ni4yLTQxLjQ1LTE0Ni01Ny45MUMxMTUsMTMyLjA4LDQwLjI5LDEwNy40MiwyNiw1OS42NWE2LjIyLDYuMjIsMCwwLDAtMTIsLjI0Yy0uOSwzLjUtMjEuNTMsODYuMzgsMTUuNjUsMTM3Ljk0LDE2LjgsMjMuMjksNDIuNjYsMzYuMzMsNzYuODUsMzguNzUsMi44OC4yLDUuNjEuNDIsOC40NC42Myw0LjE1LDE1LjE2LDIyLjE0LDYwLjYzLDg5LjYxLDY2LDEyLjI1LDEsMjQuMTcsMi4yNSwzNS45LDMuNjUsNC45MiwxNC4xNiwyNi44NCw1Ny42LDExNCw3My4wNyw2Mi43OCwxMS4xNCwxMTQsMzEuMTgsMTMxLjIxLDUxLjI1LDQuMzksMTIuNjgsNi41MywyMC42Miw2LjYzLDIxYTYuMiw2LjIsMCwwLDAsNiw0LjY1LDYuNTYsNi41NiwwLDAsMCwxLjU3LS4yQTYuMjMsNi4yMywwLDAsMCw1MDQuMzMsNDQ5Wk0zOS43NCwxOTAuNThDMTYsMTU3LjczLDE4Ljc1LDEwOC41MiwyMi41NSw4MS44M2MyNi4wNyw0MS40Myw5Mi4zNCw2My4zMSwxNjcuNjIsODguMTYsNDkuMzIsMTYuMjksMTAwLjMzLDMzLjEzLDE0NCw1NywzMS40NiwxNy4yMSw1Ny41Myw0MS44LDc4LjgsNjguNDRDMzcyLDI2OS4zOCwzMDUuNTgsMjM4LjIyLDEwNy4zNSwyMjQuMTgsNzcsMjIyLDU0LjI4LDIxMC43MywzOS43NCwxOTAuNThabTg4LjM2LDQ3LjY0YzIwMi4zOCwxNi40MiwyNTQuMzYsNTEuNDYsMjkyLjY0LDc3LjI4LDQuMzYsMi45NSw4LjU4LDUuOCwxMi44NCw4LjUxLDUuMDksNy43Nyw5LjgxLDE1LjU1LDE0LjE4LDIzLjIyLTM4LjM3LTE5Ljc4LTExNS42OS00MS40Mi0yMDEuMTktNTIuMTUtLjE0LDAtLjI5LDAtLjQ0LS4wNi0xMy4zOS0xLjY3LTI2Ljk0LTMuMTMtNDAuNjEtNC4yMkMxNTAuNDksMjg2LjQzLDEzMy4yMSwyNTMuNTMsMTI4LjEsMjM4LjIyWk0zNTYuNjMsMzY3LjY4Yy03MC44My0xMi41Ny05NC41MS00My43OS0xMDItNTkuMTEsMTEwLjI0LDE0Ljg3LDE5Mi43Nyw0Ni4yNywyMDUuNjEsNjIsNi43NSwxMy41NSwxMi4yOSwyNi4yNSwxNi44MSwzNy41QzQ1MS4xLDM5MS40OSw0MDcuOTQsMzc2Ljc4LDM1Ni42MywzNjcuNjhaIi8+PC9zdmc+");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 48px;
+  height: 48px;
+}
+
+.navbar-nav .nav-item:hover {
+  background-color: rgba(180, 190, 203, 0.4);
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Section Start -->
+    <header class="">
+
+        <nav class="navbar navbar-expand-lg navbar-dark  " style="margin: auto;">
+            <div class="container-fluid">
+<img src="./assets/images/logo.png" width="80px" alt="">              <button style="background:black;opacity:0.3;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-md-auto gap-2">
+                  <li class="nav-item rounded">
+                    <a class="nav-link active" style="color:black;" aria-current="page" href="#aboutus"><i class="bi bi-house-fill me-2"></i>About Us </a>
+                  </li>
+                  <li class="nav-item rounded">
+                    <a class="nav-link" href="#course" style="color:black;"><i class="bi bi-people-fill me-2"></i>Courses</a>
+                  </li>
+                  <li class="nav-item rounded">
+                    <a class="nav-link" style="color:black;" href="#contact"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown rounded">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill me-2"></i>Profile</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Account</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+    </header>
+
+
+
+    <!-- Navbar Section End -->
+
+    <!-- Donate Section Start -->
+    <section class="page-section" id="carousel" style="margin: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="top-content">
+ 
+                        <!-- Carousel -->
+                        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                     
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example" data-slide-to="1"></li>
+                                <li data-target="#carousel-example" data-slide-to="2"></li>
+                                <li data-target="#carousel-example" data-slide-to="3"></li>
+                            </ol>
+                     
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/neuro_marketing_courses.png" class="d-block w-100" alt="slide-img-1">
+                                    
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/machine_learning_courses.png" class="d-block w-100" alt="slide-img-2">
+                                   
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/branding_courses.png" class="d-block w-100" alt="slide-img-3">
+                                   
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/ai_courses.png" class="d-block w-100" alt="slide-img-4">
+                                    
+                                </div>
+                            </div>
+                     
+                            <a  class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                                <span  class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- End carousel -->
+                     
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section End -->
+
+    <!-- Membership Section Start -->
+    <section class="page-section" id="aboutus">
+        <div class="container">
+
+            <div class="row ">
+                <div class="col-md-6">
+                    <img style="width: 100%; padding-top: 20px;" src="./assets/images/undraw_Firmware_jw6u (1) 1.svg" alt="">
+
+                </div>
+                <div class="col-md-6" style="padding:10px; margin-top:20px;">
+                    <h2 style="color: #E21616; font-weight: 600;">Biz kimik?
+                    </h2>
+                    <p style="letter-spacing: 2px;">
+                        Teknologiya və biznes sahəsində mütəxəssislər yetişdirmək bizim öncəlikli amalımızdır. Peşakar
+                        komandamızla birgə, robotik texnologiyalar,proqramlaşdırma , startup idarəetməsi sahələrində
+                        dərslər verir və tələbələrimizlə sıx əlaqələr yaradırıq. Əsas məqsədimiz öncəliklə ölkəmizi
+                        robotik texnologiyaların təlimi tərəfindən inkişaf etdirmək daha sonra isə bu sahəni peşakar
+                        davam etməyi hədəfləyən fərdlərə bu istiqamətdə yol göstərərək, düzgün irəliləməyəni təmin
+                        etməkdir. Bununla yanaşı sizin startupınızın böyüməsi üçün konsultasiya komandamız
+                        xidmətinizdədir.Qısacası Zade-Aİ robotics olaraq gələcəyin təməllərini indidən ataraq sizi
+                        gələcəkdə var edirik...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Membership Section End -->
+
+
+
+    <!-- About Section Start -->
+    <!-- <section class="page-section" id="happyCustomers" style="margin:40px auto;">
+        <div class="container">
+
+            <div class="row">
+                <h2 style="text-align: center;color: #E21616; font-weight: 600;">Happy Customer</h2>
+                <div class="col-md-12" style=" display: flex;
+              align-items: center;">
+                    <img style=" width: 100%; max-width: 500px;" src="./assets/images/Group 9.png" alt="">
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section> -->
+    <!-- About Section End -->
+    <!-- Picture Section Start -->
+    <section class="page-section  " id="picture">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 p-0 ">
+                    <img width="100%" style=" margin: auto;
+width: 50%; " src="./assets/images/about-us.png" alt="">
+                </div>
+             
+            </div>
+        </div>
+    </section>
+
+    <!-- Picture Section End -->
+
+    <!-- Mission and Vision Section Start -->
+    <section class="page-section text-background" id="mission-vision" style="background-color: #c3e1f7 !important;">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-md-4 picture-left">
+<img style="width: 100%;" src="./assets/images/left-illustration.png" alt="">
+</div> -->
+                <div class="col-12 " style="align-items:center;  display: flex; 
+align-items: center;">
+                    <img style="padding: 20px; margin-top: 20px; margin-bottom: 20px; width: 100%;"
+                        src="./assets/images/undraw_Artificial_intelligence_re_enpp (1) 1.svg" alt="">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Mission and Vision Section End -->
+    <section class="courses" id="course" style="margin-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <h2 style="text-align: center;">Courses</h2>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/ai_courses.png" alt=""> <br> -->
+                    <div class="card text-center" style="width: 18rem;">
+                        <img src="./assets/images/ai_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Artificial Intelligence</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/branding_courses.png" alt=""> -->
+                    <!-- <br> -->
+                    <div class="card text-center" style="width: 18rem;">
+                        <img src="./assets/images/branding_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Branding </h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/machine_learning_courses.png" alt="">
+                    <br> -->
+                    <div class="card text-center" style="width: 18rem;">
+                        <img src="./assets/images/machine_learning_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Machine Learning</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/neuro_marketing_courses.png" alt="">
+                    <br> -->
+                    <div class="card text-center" style="width: 18rem;  margin-top: 10px;">
+                        <img src="./assets/images/neuro_marketing_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Neuro-Marketing </h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/python_courses.png" alt="">
+                    <br> -->
+                    <div class="card text-center" style="width: 18rem;  margin-top: 10px;">
+                        <img src="./assets/images/python_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Python </h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- <img style="max-width: 225px;" src="./assets/images/startup_courses.png" alt="">
+                    <br> -->
+                    <div class="card text-center" style="width: 18rem; margin-top: 10px;">
+                        <img src="./assets/images/startup_courses.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#E21616 ;">Startup </h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary course-button">Kursa Yazıl</a>
+                        </div>
+                      </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- Contact Section Start -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="contact-heading text-uppercase"> <b> Contact Us </b></h2>
+                <hr class="section-line" style="width: 60px; margin: 24px 47% 50px;">
+
+            </div>
+
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder=" Name " required="required"
+                                data-validation-required-message="Please enter your name." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="E-mail address"
+                                required="required"
+                                data-validation-required-message="Please enter your email address." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Send Message..."
+                                required="required"
+                                data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div style="background-color: white !important;" class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary  " style="font-weight: 600;" id="sendMessageButton"
+                            type="submit">Send </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+    <!-- Footer Section Start -->
+
+    <!-- Footer -->
+    <footer class=" text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container  ">
+            <!--Grid row-->
+
+
+            <!-- Copyright -->
+            <div class="text-center p-3 copyright-text" style="background-color: rgb(255, 255, 255)">
+                © 2021.All rights reserved </div>
+            <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <!-- Footer Section End -->
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        function navSlide() {
+            const burger = document.querySelector(".burger");
+            const nav = document.querySelector(".nav-links");
+            const navLinks = document.querySelectorAll(".nav-links li");
+
+            burger.addEventListener("click", () => {
+                //Toggle Nav
+                nav.classList.toggle("nav-active");
+
+                //Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = ""
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+                    }
+                });
+                //Burger Animation
+                burger.classList.toggle("toggle");
+            });
+
+        }
+
+        navSlide();
+    </script>
+
+    <!--Bootstrap  JavaScript link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
